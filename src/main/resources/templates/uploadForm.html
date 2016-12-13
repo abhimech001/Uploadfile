@@ -1,0 +1,190 @@
+<!-- <html xmlns:th="http://www.thymeleaf.org"> -->
+<html lang="en">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="refresh" content="15"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></link>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="bootstrap.js"></script>
+<link href="main.css" rel="stylesheet"></link>
+
+</head>
+<style>
+.list-group-item {
+	position: relative;
+	display: block;
+	padding: 0px 15px;
+	margin-bottom: -1px;
+	background-color: #fff;
+	border: 1px solid #ddd;
+}
+
+.list-group {
+	padding-left: 13px;
+	margin-bottom: 20px;
+}
+
+.btn-success1 {
+	margin-left: 20%;
+	padding-left: 10%;
+	color: #fff;
+	background-color: #5cb85c;
+	border-color: #4cae4c;
+}
+/*  .BTN-LINK { */
+/*     BACKGROUND-COLOR: RED; */
+/*     -WEBKIT-BOX-SHADOW: NONE; */
+/*     BOX-SHADOW: NONE; */
+/* } */
+.btn-link:focus, .btn-link:hover {
+	color: wheat;
+	text-decoration: underline;
+	background-color: red;
+}
+
+.list-group {
+	padding-left: 13px;
+	margin-bottom: 9px;
+}
+
+.btn1 {
+	display: inline-block;
+	padding: 6px 12px;
+	margin-bottom: 0;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 0.428571;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: middle;
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	margin-top: 2px;
+}
+
+.list-group-item {
+	position: relative;
+	display: block;
+	padding: 0px 14px;
+	margin-bottom: 0px;
+	background-color: #fff;
+	/* 	border-bottom-width: 0px; */
+}
+
+.btn-link {
+	height: 4%;
+	border-radius: 4px;
+	margin-left: 13%;
+	color: wheat;
+	background-color: red;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+/* hr {  */
+/*     display: block; */
+/*     margin-top: 0.5em; */
+/*     margin-top: 25%; */
+/*         margin-left: auto; */
+/*     margin-right: auto; */
+/*     border-style: groove; */
+/*     border-width: 1px; */
+/* }  */
+footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	border-top: 1px solid grey;
+}
+
+h1.normal {
+    color: slategrey;
+    text-align: center;
+	font-variant: normal;
+}
+/* .btn-link { */
+/* 	background-color: #fd3c3c; */
+/* 	-webkit-box-shadow: none; */
+/* 	box-shadow: none; */
+/* } */
+
+/* .btn-link { */
+/* 	font-weight: 400; */
+/* 	color: wheat; */
+/* 	border-radius: 0; */
+/* } */
+
+/* .btn-link { */
+/*     margin-left: 11%; */
+/*     font-weight: 400; */
+/*     color: wheat; */
+/*     border-radius: 0; */
+/* } */
+</style>
+<body>
+	<div>
+		<div class="navbar navbar-default">
+			<h1 class="normal">iShare ...!</h1>
+		</div>
+		<div>
+			<div th:if="${message}">
+				<h2 th:text="${message}" />
+			</div>
+		</div>
+		<div >
+			<form method="POST" style="margin-left: 30%" enctype="multipart/form-data" action="/">
+				<table>
+					<tr>
+						<td><dt><div style="margin-left: -21%;    font-family: initial;">File to upload</div></dt></td>
+						<td><input type="file" class="btn btn-default btn-file"
+							name="file" /></td>
+						<td style="margin-top: 4%"><button type="submit"
+								value="Upload" class="btn btn-success1">Upload</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+
+		<div class="container">
+			<div class="list-group">
+				<li class="list-group-item" th:each="file : ${files}">
+					<form method="POST" action="/delete">
+						<div>
+							<div
+								style="padding-top: 6px; float: left; margin-left: 0%; width: 80%">
+								<a th:href="${file}" th:text="${file}" /> <input type="hidden"
+									name="filed" th:value="${file}" />
+							</div>
+							<!-- 							 <input type="submit" value="Delete" /> -->
+							<div>
+								<button type="submit" value="Delete" class="btn1 btn-link">Delete</button>
+							</div>
+						</div>
+					</form>
+				</li>
+			</div>
+		</div>
+	</div>
+	<!-- 	<hr></hr> -->
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">*Copyright (C) General Electric Company
+				2016 . All Rights Reserved..</p>
+		</div>
+	</footer>
+</body>
+</html>
