@@ -144,8 +144,7 @@ public class FileSystemStorageService implements StorageService {
 		// Files.delete(path);
 		String rootPath = System.getProperty("user.home");
 		File dir1 = new File(rootPath + File.separator + "tmpFilesUpload");
-		String dir = "C:/Users/999951.TCSGEGDC/Downloads/gs-uploading-files-master/gs-uploading-files-master/complete/upload-dir/"
-				+ file;
+		String dir = "C:\Users\DELL\Downloads"+ file;
 		Path path = Paths.get(dir1.getAbsolutePath()+ File.separator + file);
 		Files.delete(path);
 	}
